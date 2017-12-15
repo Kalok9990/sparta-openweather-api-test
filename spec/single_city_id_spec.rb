@@ -26,9 +26,9 @@ describe Weatherios do
       expect(@weatherio.get_weather_lon).to be_between(-180, 180).inclusive
     end
 
-    it "should have a lat in the coord as a float and between -180 and 180" do
+    it "should have a lat in the coord as a float and between -90 and 90" do
       expect(@weatherio.get_weather_lat).to be_kind_of(Float)
-      expect(@weatherio.get_weather_lat).to be_between(-180, 180).inclusive
+      expect(@weatherio.get_weather_lat).to be_between(-90, 90).inclusive
     end
 
     it "should have a weather section as an array" do
@@ -69,6 +69,39 @@ describe Weatherios do
 
     it "should have a humidity in the main section as an integer" do
       expect(@weatherio.get_weather_mainhum).to be_kind_of(Integer)
+    end
+
+    it "should have a temp_min in the main section as an integer" do
+      expect(@weatherio.get_weather_maintemp_min).to be_kind_of(Float)
+    end
+
+    it "should have a temp_max in the main section as an integer" do
+      expect(@weatherio.get_weather_maintemp_max).to be_kind_of(Float)
+    end
+
+    it "should have a wind as a Hash" do
+      expect(@weatherio.get_weather_wind).to be_kind_of(Hash)
+    end
+
+    it "should have a speed in the wind section as a float" do
+      expect(@weatherio.get_weather_windspeed).to be_kind_of(Float)
+    end
+
+    it "should have a degrees in the wind section as a float or integer between 0 and 360" do
+      expect(@weatherio.get_weather_winddeg).to be_kind_of(Float).or be_kind_of(Integer)
+      expect(@weatherio.get_weather_winddeg).to be_between(0,360).inclusive
+    end
+
+    it "should have a clouds as a Hash" do
+      expect(@weatherio.get_weather_clouds).to be_kind_of(Hash)
+    end
+
+    it "should have an all in clouds section as an integer" do
+      expect(@weatherio.get_weather_cloudsall).to be_kind_of(Integer)
+    end
+
+    it "should have a rain as a hash" do
+      expect(@weatherio.get_weather_rain).to be_kind_of(Hash).or be_nil
     end
   end
 end

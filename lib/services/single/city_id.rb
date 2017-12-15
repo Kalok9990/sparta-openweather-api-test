@@ -73,6 +73,38 @@ class SingleCityID
   def get_weather_mainhum
     get_weather_main["humidity"]
   end
+
+  def get_weather_maintemp_min
+    get_weather_main["temp_min"]
+  end
+
+  def get_weather_maintemp_max
+    get_weather_main["temp_max"]
+  end
+
+  def get_weather_wind
+    get_weather_city["wind"]
+  end
+
+  def get_weather_windspeed
+    get_weather_wind["speed"]
+  end
+
+  def get_weather_winddeg
+    get_weather_wind["deg"]
+  end
+
+  def get_weather_clouds
+    get_weather_city["clouds"]
+  end
+
+  def get_weather_cloudsall
+    get_weather_clouds["all"]
+  end
+
+  def get_weather_rain
+    get_weather_city["rain"]
+  end
 end
 
 x = SingleCityID.new
