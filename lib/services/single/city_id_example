@@ -1,0 +1,4 @@
+{"coord"=>{"lon"=>48.57, "lat"=>34.79}, "weather"=>[{"id"=>800, "main"=>"Clear", "description"=>"clear sky", "icon"=>"01n"}], "base"
+=>"stations", "main"=>{"temp"=>279.18, "pressure"=>1020, "humidity"=>59, "temp_min"=>276.15, "temp_max"=>280.15}, "visibility"=>1000
+0, "wind"=>{"speed"=>0.92, "deg"=>239.001}, "clouds"=>{"all"=>0}, "dt"=>1513349400, "sys"=>{"type"=>1, "id"=>7030, "message"=>0.0055
+, "country"=>"IR", "sunrise"=>1513309568, "sunset"=>1513344973}, "id"=>14256, "name"=>"Azadshahr", "cod"=>200}
