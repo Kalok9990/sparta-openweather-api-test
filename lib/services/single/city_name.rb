@@ -17,4 +17,4 @@ end
 
 x = SingleCityName.new
 
-p x.get_weather_cityname("London")
+# p x.get_weather_cityname("London")

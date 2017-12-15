@@ -17,4 +17,4 @@ end
 
 x = SingleCityZip.new
 
- p x.get_weather_cityzip("sl6", "gb")
+ # p x.get_weather_cityzip("sl6", "gb")
