@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe Weatherios do
 
-  context 'requesting information on a single city id works correctly' do
+  context 'requesting information on a single city name works correctly' do
 
     before(:all) do
-      @weatherio = Weatherios.new.single_city_id
-      @weatherio.get_weather_cityid(14256)
+      @weatherio = Weatherios.new.single_city_name
+      @weatherio.get_weather_cityname("London", "uk")
     end
 
     it "should respond to a Hash" do

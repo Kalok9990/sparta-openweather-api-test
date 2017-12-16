@@ -105,6 +105,50 @@ class SingleCityID
   def get_weather_rain
     get_weather_city["rain"]
   end
+
+  def get_weather_rain3h
+    get_weather_rain["3h"]
+  end
+
+  def get_weather_dt
+    get_weather_city["dt"]
+  end
+
+  def get_weather_sys
+    get_weather_city["sys"]
+  end
+
+  def get_weather_systype
+    get_weather_sys["type"]
+  end
+
+  def get_weather_sysid
+    get_weather_sys["id"]
+  end
+
+  def get_weather_sysmessage
+    get_weather_sys["message"]
+  end
+
+  def get_weather_syscountry
+    get_weather_sys["country"]
+  end
+
+  def get_weather_syssunrise
+    get_weather_sys["sunrise"]
+  end
+
+  def get_weather_syssunset
+    get_weather_sys["sunset"]
+  end
+
+  def get_weather_id
+    get_weather_city["id"]
+  end
+
+  def get_weather_name
+    get_weather_city["name"]
+  end
 end
 
 x = SingleCityID.new
