@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Weatherios do
 
-  context 'requesting information on a single city coordinate works correctly' do
+  context 'requesting information on a single city zip works correctly' do
 
     before(:all) do
       @weatherio = Weatherios.new.single_zip
@@ -69,12 +69,24 @@ describe Weatherios do
       expect(@weatherio.get_weather_mainhum).to be_kind_of(Integer)
     end
 
-    it "should have a temp_min in the main section as an integer" do
-      expect(@weatherio.get_weather_maintemp_min).to be_kind_of(Float)
+    it "should have a temp_min in the main section as an integer or a float" do
+      expect(@weatherio.get_weather_maintemp_min).to be_kind_of(Integer).or be_kind_of(Float)
     end
 
-    it "should have a temp_max in the main section as an integer" do
-      expect(@weatherio.get_weather_maintemp_max).to be_kind_of(Float)
+    it "should have a temp_max in the main section as an integer or a float" do
+      expect(@weatherio.get_weather_maintemp_max).to be_kind_of(Integer).or be_kind_of(Float)
+    end
+
+    it "should have a sea level in the main section as an integer or a float or nil" do
+      expect(@weatherio.get_weather_mainsea).to be_kind_of(Integer).or be_kind_of(Float).or be_nil
+    end
+
+    it "should have a ground level in the main section as an integer or a float or nil" do
+      expect(@weatherio.get_weather_maingrnd).to be_kind_of(Integer).or be_kind_of(Float).or be_nil
+    end
+
+    it "should have a visibility as a float or integer" do
+      expect(@weatherio.get_weather_visibility).to be_kind_of(Integer).or be_kind_of(Float)
     end
 
     it "should have a wind as a Hash" do
@@ -103,7 +115,17 @@ describe Weatherios do
 
     it "should have a 3h if there is a rain section" do
       if @weatherio.get_weather_rain != nil
-        expect(@weatherio.get_weather_rain3h).to be_kind_of(Hash)
+        expect(@weatherio.get_weather_rain3h).to be_kind_of(Float)
+      end
+    end
+
+    it "should have a snow as a hash or to be nil" do
+      expect(@weatherio.get_weather_snow).to be_kind_of(Hash).or be_nil
+    end
+
+    it "should have a 3h if there is a snow section" do
+      if @weatherio.get_weather_snow != nil
+        expect(@weatherio.get_weather_snow3h).to be_kind_of(Float)
       end
     end
 

@@ -17,4 +17,4 @@ end
 
 x = MultipleCityCycle.new
 
-# p x.get_weather_citycycle(55.5, 37.5, 10)
+p x.get_weather_citycycle(55.5, 37.5, 10)

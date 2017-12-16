@@ -82,6 +82,18 @@ class SingleCityName
     get_weather_main["temp_max"]
   end
 
+  def get_weather_mainsea
+    get_weather_main["sea_level"]
+  end
+
+  def get_weather_maingrnd
+    get_weather_main["grnd_level"]
+  end
+
+  def get_weather_visibility
+    get_weather_city["visibility"]
+  end
+
   def get_weather_wind
     get_weather_city["wind"]
   end
@@ -108,6 +120,14 @@ class SingleCityName
 
   def get_weather_rain3h
     get_weather_rain["3h"]
+  end
+
+  def get_weather_snow
+    get_weather_city["snow"]
+  end
+
+  def get_weather_snow3h
+    get_weather_snow["3h"]
   end
 
   def get_weather_dt
@@ -153,4 +173,4 @@ end
 
 x = SingleCityName.new
 
-# p x.get_weather_cityname("London")
+# p x.get_weather_cityname("London","uk")
