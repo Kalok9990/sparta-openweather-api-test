@@ -21,13 +21,13 @@ describe Weatherios do
       expect(@weatherio.get_weather_coord).to be_kind_of(Hash)
     end
 
-    it "should have a lon in the coord as a float and between -180 and 180" do
-      expect(@weatherio.get_weather_lon).to be_kind_of(Float)
+    it "should have a lon in the coord as a float or an integer and between -180 and 180" do
+      expect(@weatherio.get_weather_lon).to be_kind_of(Float).or be_kind_of(Integer)
       expect(@weatherio.get_weather_lon).to be_between(-180, 180).inclusive
     end
 
-    it "should have a lat in the coord as a float and between -90 and 90" do
-      expect(@weatherio.get_weather_lat).to be_kind_of(Float)
+    it "should have a lat in the coord as a float or integer and between -90 and 90" do
+      expect(@weatherio.get_weather_lat).to be_kind_of(Float).or be_kind_of(Integer)
       expect(@weatherio.get_weather_lat).to be_between(-90, 90).inclusive
     end
 
@@ -64,7 +64,7 @@ describe Weatherios do
     end
 
     it "should have a pressure in the main section as an integer" do
-      expect(@weatherio.get_weather_mainpres).to be_kind_of(Integer)
+      expect(@weatherio.get_weather_mainpres).to be_kind_of(Integer).or be_kind_of(Float)
     end
 
     it "should have a humidity in the main section as an integer" do
@@ -118,12 +118,12 @@ describe Weatherios do
       expect(@weatherio.get_weather_sys).to be_kind_of(Hash)
     end
 
-    it "should have a type in the sys section as an integer" do
-      expect(@weatherio.get_weather_systype).to be_kind_of(Integer)
+    it "should have a type in the sys section as an integer or be nil" do
+      expect(@weatherio.get_weather_systype).to be_kind_of(Integer).or be_nil
     end
 
-    it "should have a id in the sys section as an integer" do
-      expect(@weatherio.get_weather_sysid).to be_kind_of(Integer)
+    it "should have a id in the sys section as an integer or nil" do
+      expect(@weatherio.get_weather_sysid).to be_kind_of(Integer).or be_nil
     end
 
     it "should have a message in the sys section as a float" do
