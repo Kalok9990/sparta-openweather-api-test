@@ -5,8 +5,8 @@ describe Weatherios do
   context 'requesting information on a single city coordinate works correctly' do
 
     before(:all) do
-      @weatherio = Weatherios.new.single_coordinates
-      @weatherio.get_weather_citycoord(35, 139)
+      @weatherio = Weatherios.new.single_zip
+      @weatherio.get_weather_cityzip("sl6", "gb")
     end
 
     it "should respond to a Hash" do
