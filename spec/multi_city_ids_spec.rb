@@ -1,8 +1,8 @@
-require 'spec_helper'
+\require 'spec_helper'
 
 describe Weatherios do
 
-  context 'requesting information on multiple cities coordinate works correctly' do
+  context 'requesting information on multiple cities ids works correctly' do
 
     before(:all) do
       @weatherio = Weatherios.new.multiple_city_ids

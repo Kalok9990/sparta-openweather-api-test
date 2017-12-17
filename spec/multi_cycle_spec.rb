@@ -49,19 +49,13 @@ describe Weatherios do
 
     it "should have a lon in the coord as a float or an integer and between -180 and 180" do
       @weatherio.get_weather_list.each do |query|
-        expect(@weatherio.get_weather_lon(query)).to be_kind_of(Float).or be_kind_of(Integer).or be_nil
-        if @weatherio.get_weather_lon(query) != nil
-          expect(@weatherio.get_weather_lon(query)).to be_between(-180, 180).inclusive
-        end
+        expect(@weatherio.get_weather_lon(query)).to be_kind_of(Float).or be_kind_of(Integer).and be_between(-180, 180).inclusive
       end
     end
 
     it "should have a lat in the coord as a float or an integer and between -90 and 90" do
       @weatherio.get_weather_list.each do |query|
-        expect(@weatherio.get_weather_lat(query)).to be_kind_of(Float).or be_kind_of(Integer).or be_nil
-        if @weatherio.get_weather_lat(query) != nil
-          expect(@weatherio.get_weather_lat(query)).to be_between(-90, 90).inclusive
-        end
+        expect(@weatherio.get_weather_lat(query)).to be_kind_of(Float).or be_kind_of(Integer).and be_between(-90, 90).inclusive
       end
     end
 

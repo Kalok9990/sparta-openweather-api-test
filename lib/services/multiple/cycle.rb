@@ -47,11 +47,11 @@ class MultipleCityCycle
   end
 
   def get_weather_lon(query)
-    query["lon"]
+    get_weather_coord(query)["lon"]
   end
 
   def get_weather_lat(query)
-    query["lat"]
+    get_weather_coord(query)["lat"]
   end
 
   def get_weather_main(query)
