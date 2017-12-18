@@ -1,12 +1,14 @@
 require 'spec_helper'
+require_relative '../lib/random/randomid'
 
 describe Weatherios do
 
   context 'requesting information on a single city id works correctly' do
 
     before(:all) do
+      @random = RandomCityId.new.get_random_id
       @weatherio = Weatherios.new.single_city_id
-      @weatherio.get_weather_cityid(14256)
+      @weatherio.get_weather_cityid(@random)
     end
 
     it "should respond to a Hash" do

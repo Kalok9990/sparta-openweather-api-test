@@ -9,17 +9,10 @@ class RandomCityId
   end
 
   def get_random_id
-
+    chosen_line = nil
     file = YAML.load_file("city_id.yml")
-    @rand_id = File.new(file)
-
-
-    # chosen_line = nil
-    # File.foreach("data.txt").each_with_index do |line, number|
-    #   chosen_line = line if rand < 1.0/(number+1)
-    # end
-    # return chosen_line
+    file[get_random_number(file.length)]
   end
 end
 x = RandomCityId.new
-puts x.get_random_id
+# puts x.get_random_id
