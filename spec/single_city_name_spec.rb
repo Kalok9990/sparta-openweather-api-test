@@ -6,7 +6,7 @@ describe Weatherios do
 
     before(:all) do
       @weatherio = Weatherios.new.single_city_name
-      @weatherio.get_weather_cityname("London", "uk")
+      @weatherio.get_weather_cityname(@weatherio.get_random_city)
     end
 
     it "should respond to a Hash" do
@@ -86,7 +86,7 @@ describe Weatherios do
     end
 
     it "should have a visibility as a float or integer" do
-      expect(@weatherio.get_weather_visibility).to be_kind_of(Integer).or be_kind_of(Float)
+      expect(@weatherio.get_weather_visibility).to be_nil.or be_kind_of(Integer).or be_kind_of(Float)
     end
 
     it "should have a wind as a Hash" do

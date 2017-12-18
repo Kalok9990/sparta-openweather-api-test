@@ -1,5 +1,6 @@
 require 'httparty'
 require 'json'
+require_relative '../../random_data/random_city_coord'
 
 class SingleCityCoord
   include HTTParty
@@ -12,6 +13,10 @@ class SingleCityCoord
 
   def get_weather_citycoord(citylat, citylon)
     @single_weather_citycoord = JSON.parse(self.class.get("lat=#{citylat}&lon=#{citylon}#{@key}").body)
+  end
+
+  def get_random_coord
+    RandomCityCoord.new.get_random_coord
   end
 
   def get_weather_city
