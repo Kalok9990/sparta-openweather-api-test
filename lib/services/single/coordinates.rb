@@ -1,6 +1,6 @@
 require 'httparty'
 require 'json'
-require_relative '../../random_data/random_city_coord'
+require_relative '../../random_data/random_city_json'
 
 class SingleCityCoord
   include HTTParty
@@ -16,7 +16,7 @@ class SingleCityCoord
   end
 
   def get_random_coord
-    RandomCityCoord.new.get_random_coord
+    RandomCity.new.get_random_coord
   end
 
   def get_weather_city
