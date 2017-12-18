@@ -6,7 +6,7 @@ describe Weatherios do
   context 'requesting information on a single city id works correctly' do
 
     before(:all) do
-      @random = RandomCityId.new.get_random_id
+      @random = RandomCityId.new.get_random_id("../lib/random/city_id.yml")
       @weatherio = Weatherios.new.single_city_id
       @weatherio.get_weather_cityid(@random)
     end

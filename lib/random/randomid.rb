@@ -8,9 +8,9 @@ class RandomCityId
     @random = rand(size)
   end
 
-  def get_random_id
+  def get_random_id(yaml)
     chosen_line = nil
-    file = YAML.load_file("city_id.yml")
+    file = YAML.load_file(yaml)
     file[get_random_number(file.length)]
   end
 end
