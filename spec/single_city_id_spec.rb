@@ -1,13 +1,10 @@
 require 'spec_helper'
-require 'yaml'
-require_relative '../lib/random/randomid'
 
 describe Weatherios do
 
   context 'requesting information on a single city id works correctly' do
 
     before(:all) do
-      # @random = RandomCityId.new.get_random_id("../city_id.yml")
       @weatherio = Weatherios.new.single_city_id
       @weatherio.get_weather_cityid(32767)
     end
