@@ -127,7 +127,7 @@ describe Weatherios do
 
     it "should have a degrees in the wind section as a float or integer between 0 and 360" do
       @weatherio.get_weather_list.each do |query|
-        expect(@weatherio.get_weather_winddeg(query)).to be_kind_of(Float).or be_kind_of(Integer).and be_between(0,360).inclusive
+        expect(@weatherio.get_weather_winddeg(query)).to be_nil.or be_kind_of(Float).or be_kind_of(Integer).and be_between(0,360).inclusive
       end
     end
 

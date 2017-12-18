@@ -93,12 +93,12 @@ describe Weatherios do
       expect(@weatherio.get_weather_wind).to be_kind_of(Hash)
     end
 
-    it "should have a speed in the wind section as a float" do
-      expect(@weatherio.get_weather_windspeed).to be_kind_of(Float)
+    it "should have a speed in the wind section as a float or an integer" do
+      expect(@weatherio.get_weather_windspeed).to be_kind_of(Float).or be_kind_of(Integer)
     end
 
     it "should have a degrees in the wind section as a float or integer between 0 and 360" do
-      expect(@weatherio.get_weather_winddeg).to be_kind_of(Float).or be_kind_of(Integer).and be_between(0,360).inclusive
+      expect(@weatherio.get_weather_winddeg).to be_nil.or be_kind_of(Float).or be_kind_of(Integer).and be_between(0,360).inclusive
     end
 
     it "should have a clouds as a Hash" do
