@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'yaml'
 
 describe Weatherios do
 
@@ -6,7 +7,7 @@ describe Weatherios do
 
     before(:all) do
       @weatherio = Weatherios.new.single_city_id
-      @weatherio.get_weather_cityid(32767)
+      @weatherio.get_weather_cityid(@weatherio.get_random_id)
     end
 
     it "should respond to a Hash" do
@@ -86,7 +87,7 @@ describe Weatherios do
     end
 
     it "should have a visibility as a float or integer" do
-      expect(@weatherio.get_weather_visibility).to be_kind_of(Integer).or be_kind_of(Float)
+      expect(@weatherio.get_weather_visibility).to be_nil.or be_kind_of(Integer).or be_kind_of(Float)
     end
 
     it "should have a wind as a Hash" do
