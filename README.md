@@ -8,17 +8,35 @@ I was given a live API to test. The API that I used was the OpenWeather API. Thi
 
 See https://openweathermap.org/api for more information on the OpenWeather API.
 
+YAML - http://yaml.org/
+
+Rspec - https://github.com/rspec/rspec
+
+JSON - https://www.cheatography.com/mackan90096/cheat-sheets/json/
+
+
 ## Install
 Requires the gem rspec, yaml and json.
 
-```Ruby
+```
 gem install rspec
 ```
-```Ruby
+```
 gem install yaml
 ```
-```Ruby
+```
 gem install json
+```
+
+When using these gems, you will need to require them in the files that are using them.
+```Ruby
+require 'rspec'
+```
+```Ruby
+require 'yaml'
+```
+```Ruby
+require 'json'
 ```
 ## Additions
 
