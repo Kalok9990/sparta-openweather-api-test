@@ -1,12 +1,13 @@
 require 'spec_helper'
+require 'yaml'
 
 describe Weatherios do
 
-  context 'requesting information on a single city name works correctly' do
+  context 'requesting information on a single city id works correctly' do
 
     before(:all) do
-      @weatherio = Weatherios.new.single_city_name
-      @weatherio.get_weather_cityname("London", "uk")
+      @weatherio = Weatherios.new.single_city_id
+      @weatherio.get_weather_cityid(@weatherio.get_random_id)
     end
 
     it "should respond to a Hash" do
@@ -86,15 +87,15 @@ describe Weatherios do
     end
 
     it "should have a visibility as a float or integer" do
-      expect(@weatherio.get_weather_visibility).to be_kind_of(Integer).or be_kind_of(Float)
+      expect(@weatherio.get_weather_visibility).to be_nil.or be_kind_of(Integer).or be_kind_of(Float)
     end
 
     it "should have a wind as a Hash" do
       expect(@weatherio.get_weather_wind).to be_kind_of(Hash)
     end
 
-    it "should have a speed in the wind section as a float or an integer" do
-      expect(@weatherio.get_weather_windspeed).to be_kind_of(Float).or be_kind_of(Integer)
+    it "should have a speed in the wind section as a float" do
+      expect(@weatherio.get_weather_windspeed).to be_kind_of(Float)
     end
 
     it "should have a degrees in the wind section as a float or integer between 0 and 360" do

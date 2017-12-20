@@ -6,7 +6,7 @@ describe Weatherios do
 
     before(:all) do
       @weatherio = Weatherios.new.multiple_city_ids
-      @weatherio.get_weather_cityids("524901,703448,2643743")
+      @weatherio.get_weather_cityids(@weatherio.get_random_ids)
     end
 
     it "should respond to a Hash" do
@@ -133,7 +133,7 @@ describe Weatherios do
 
     it "should have a visibility as an integer or a float" do
       @weatherio.get_weather_list.each do |query|
-        expect(@weatherio.get_weather_visibility(query)).to be_kind_of(Integer).or be_kind_of(Float)
+        expect(@weatherio.get_weather_visibility(query)).to be_nil.or be_kind_of(Integer).or be_kind_of(Float)
       end
     end
 

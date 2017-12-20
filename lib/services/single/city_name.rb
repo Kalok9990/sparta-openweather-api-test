@@ -1,5 +1,6 @@
 require 'httparty'
 require 'json'
+require_relative '../../random_data/random_city_json'
 
 class SingleCityName
   include HTTParty
@@ -10,8 +11,12 @@ class SingleCityName
     @key = "&APPID=3b766b933ebc34192b1c09261a569fdd"
   end
 
-  def get_weather_cityname(cityname, countrycode)
-    @single_weather_cityname = JSON.parse(self.class.get("q=#{cityname},#{countrycode}#{@key}").body)
+  def get_weather_cityname(city)
+    @single_weather_cityname = JSON.parse(self.class.get("q=#{city}#{@key}").body)
+  end
+
+  def get_random_city
+    RandomCity.new.get_random_cityname
   end
 
   def get_weather_city

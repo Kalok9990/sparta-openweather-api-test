@@ -1,6 +1,6 @@
 require 'httparty'
 require 'json'
-require_relative '../../random_data/random_city_id'
+require_relative '../../random_data/random_city_yaml'
 
 class SingleCityID
   include HTTParty

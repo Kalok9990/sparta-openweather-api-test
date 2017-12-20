@@ -6,7 +6,7 @@ describe Weatherios do
 
     before(:all) do
       @weatherio = Weatherios.new.single_coordinates
-      @weatherio.get_weather_citycoord(35, 139)
+      @weatherio.get_weather_citycoord(@weatherio.get_random_coord[0], @weatherio.get_random_coord[1])
     end
 
     it "should respond to a Hash" do
@@ -150,7 +150,7 @@ describe Weatherios do
     end
 
     it "should have a country code in the sys section as a string" do
-      expect(@weatherio.get_weather_syscountry).to be_kind_of(String)
+      expect(@weatherio.get_weather_syscountry).to be_kind_of(String).or be_nil
     end
 
     it "should have a sunrise in the sys section as an integer" do

@@ -1,5 +1,6 @@
 require 'httparty'
 require 'json'
+require_relative '../../random_data/random_city_yaml'
 
 class MultipleCityIds
   include HTTParty
@@ -8,6 +9,10 @@ class MultipleCityIds
 
   def initialize
     @key = "&APPID=3b766b933ebc34192b1c09261a569fdd"
+  end
+
+  def get_random_ids
+    RandomCityId.new.get_multiple_random_ids(4)
   end
 
   def get_weather_cityids(cityids)
