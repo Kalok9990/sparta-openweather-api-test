@@ -20,3 +20,6 @@ gem install yaml
 ```Ruby
 gem install json
 ```
+## Additions
+
+Due to the documentation in the OpenWeather API, there will be some tests that fail. However, that is not due to the tests but the lack of information on what value types may come up in the specific keys. With further testing, all the values may eventually be found. But this will be difficult as exhaustive testing is near impossible.
